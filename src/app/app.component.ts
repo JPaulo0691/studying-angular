@@ -20,4 +20,8 @@ import { CommonModule } from '@angular/common';
 export class AppComponent {
   title = 'studying-angular';
   users = DUMMY_USERS;
+
+  onSelectUser(id:string){
+    console.log(`User id: ${id}`);
+  }
 }
