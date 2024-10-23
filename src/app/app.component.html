@@ -3,17 +3,24 @@
 <main>
   <ul id="users">
 
-    <li *ngFor="let client of users">
-      <app-user
-        [user]="client"
-        (select)="onSelectUser($event)"
-      />
-    </li>
+    @for (client of users; track client.id){
+      <li>
+        <!--<li *ngFor="let client of users">-->
+          <app-user
+            [user]="client"
+            (select)="onSelectUser($event)"
+          />
+        </li>
+    }
 
   </ul>
 
-  <app-tasks
-    [name]="selectedUser ? selectedUser.name : ''"
-  />
+  @if (selectedUser){
+    <app-tasks [userId]="selectedUser.id"  [name]="selectedUser.name"/>
+  }
+  @else {
+    <h1 id="fallback">Select a User to see their Tasks</h1>
+  }
+
 </main>
 
