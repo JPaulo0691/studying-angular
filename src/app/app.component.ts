@@ -4,6 +4,7 @@ import { HeaderComponent } from './header/header.component';
 import { UserComponent } from './user/user.component';
 import { DUMMY_USERS } from './dummy-users';
 import { CommonModule } from '@angular/common';
+import { TasksComponent } from './tasks/tasks.component';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,8 @@ import { CommonModule } from '@angular/common';
     RouterOutlet,
     HeaderComponent,
     UserComponent,
-    CommonModule
+    CommonModule,
+    TasksComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
@@ -21,7 +23,13 @@ export class AppComponent {
   title = 'studying-angular';
   users = DUMMY_USERS;
 
+  selectedUserId = 'u1';
+
+  get selectedUser(){
+    return this.users.find((user) => user.id === this.selectedUserId)!;
+  }
+
   onSelectUser(id:string){
-    console.log(`User id: ${id}`);
+    this.selectedUserId = id;
   }
 }

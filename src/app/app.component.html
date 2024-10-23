@@ -3,15 +3,17 @@
 <main>
   <ul id="users">
 
-    <li *ngFor="let user of users">
+    <li *ngFor="let client of users">
       <app-user
-        [id]="user.id"
-        [avatar]="user.avatar"
-        [name]="user.name"
+        [user]="client"
         (select)="onSelectUser($event)"
       />
     </li>
 
   </ul>
+
+  <app-tasks
+    [name]="selectedUser ? selectedUser.name : ''"
+  />
 </main>
 
