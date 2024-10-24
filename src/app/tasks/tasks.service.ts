@@ -7,10 +7,10 @@ export class TaskService{
   private tasks = DUMMY_TASKS;
 
   constructor(){
-    const tasks = localStorage.getItem('tasks');
+    const task = localStorage.getItem('tasks');
 
-    if(tasks){
-      this.tasks = JSON.parse(tasks);
+    if(task){
+      this.tasks = JSON.parse(task);
     }
   }
 

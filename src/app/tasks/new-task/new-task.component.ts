@@ -1,12 +1,9 @@
 import { TaskService } from './../tasks.service';
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { NewTaskData } from './new-task.model';
 
 @Component({
   selector: 'app-new-task',
-  standalone: true,
-  imports: [FormsModule],
+  standalone: false,
   templateUrl: './new-task.component.html',
   styleUrl: './new-task.component.scss'
 })
@@ -34,7 +31,7 @@ export class NewTaskComponent {
       date: this.enteredDate
     },
     this.userId);
-    
+
     this.close.emit();
   }
 
